@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             alignment: Alignment.centerLeft,
             child: TabBar(
               labelPadding: const EdgeInsets.only(left: 20, right: 20),
+              dividerColor: Colors.white,
               controller: _tabController,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,
@@ -66,13 +67,30 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
         ),
-        SizedBox(
+        Container(
+          padding: const EdgeInsets.only(left: 20),
           height: 300,
           width: double.maxFinite,
           child: TabBarView(
             controller: _tabController,
-            children: const [
-              Text("Hi"),
+            children: [
+              ListView.builder(
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 15, top: 10),
+                    width: 200,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: const DecorationImage(
+                            image: AssetImage('assets/m5.webp'),
+                            fit: BoxFit.cover)),
+                  );
+                },
+              ),
               Text("There"),
               Text("Bye"),
             ],
