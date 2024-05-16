@@ -9,7 +9,7 @@ class AppLargeText extends StatelessWidget {
       {super.key,
       this.size = 30,
       required this.text,
-      this.color = Colors.white});
+      this.color = Colors.black});
 
   @override
   Widget build(BuildContext context) {
