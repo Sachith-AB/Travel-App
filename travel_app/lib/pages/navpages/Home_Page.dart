@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var images = {
+    "b3.jpg": "Balloning",
+    "kayaking.png": "Kayaking",
+    "h2.jpg": "Hiking",
+    "snorking2.jpg": "Snorking",
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -95,6 +104,67 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Text("Bye"),
             ],
           ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppLargeText(
+                text: "Explore more",
+                size: 22,
+              ),
+              AppText(
+                text: "See all",
+                color: AppColors.textColor5,
+              )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Container(
+          height: 120,
+          width: double.infinity,
+          margin: const EdgeInsets.only(left: 20),
+          child: ListView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 30),
+                  child: Column(
+                    children: [
+                      Container(
+                        //margin: const EdgeInsets.only(right: 50),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/${images.keys.elementAt(index)}'),
+                                fit: BoxFit.cover)),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: AppText(
+                          text: images.values.elementAt(index),
+                          color: AppColors.textColor5,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }),
         )
       ]),
     );
