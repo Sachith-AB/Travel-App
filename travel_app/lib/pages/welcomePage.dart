@@ -1,9 +1,8 @@
-// ignore: file_names
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -56,6 +55,8 @@ class _WelcomePageState extends State<WelcomePage> {
                             color: AppColors.textColor3),
                       ),
                       const SizedBox(height: 10),
+                      ResponsiveButton(
+                          color: index == 0 ? Colors.black : Colors.white)
                     ],
                   ),
                   Column(

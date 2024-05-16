@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class ResponsiveButton extends StatelessWidget {
   bool? isResponsive;
   double? width;
-  ResponsiveButton({super.key, this.width, this.isResponsive = false});
+  Color? color;
+  ResponsiveButton(
+      {super.key, this.width, this.isResponsive = false, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +14,11 @@ class ResponsiveButton extends StatelessWidget {
       width: width,
       height: 40,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-      child: Row(children: [
-        Image.asset("assets/button1.png"),
+      child: const Row(children: [
+        Text(
+          "Click here",
+          style: TextStyle(color: Colors.white),
+        )
       ]),
     );
   }
