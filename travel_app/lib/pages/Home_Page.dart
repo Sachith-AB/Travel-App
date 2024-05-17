@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
@@ -19,6 +17,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     "h2.jpg": "Hiking",
     "snorking2.jpg": "Snorking",
   };
+  var mountain = {"m3.jpg": "m1", "m6.jpg": "m2", "m5.webp": "m3"};
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -94,8 +93,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
-                        image: const DecorationImage(
-                            image: AssetImage('assets/m5.webp'),
+                        image: DecorationImage(
+                            image: AssetImage(
+                                'assets/${mountain.keys.elementAt(index)}'),
                             fit: BoxFit.cover)),
                   );
                 },
