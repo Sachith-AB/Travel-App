@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
@@ -100,8 +101,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   );
                 },
               ),
-              Text("There"),
-              Text("Bye"),
+              const Text("There"),
+              const Text("Bye"),
             ],
           ),
         ),
