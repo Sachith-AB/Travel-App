@@ -55,8 +55,15 @@ class _WelcomePageState extends State<WelcomePage> {
                             color: AppColors.textColor3),
                       ),
                       const SizedBox(height: 10),
-                      ResponsiveButton(
-                          color: index == 0 ? Colors.black : Colors.white)
+                      AppButton(
+                        color: Colors.black,
+                        backgroundColor: Colors.white70,
+                        borderColor: AppColors.textColor,
+                        height: 50,
+                        width: 100,
+                        isIcon: true,
+                        icon: Icons.abc,
+                      )
                     ],
                   ),
                   Column(
