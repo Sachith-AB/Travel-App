@@ -1,30 +1,29 @@
 import 'package:equatable/equatable.dart';
 
-// Define an event
-abstract class CounterEvent extends Equatable {
-  const CounterEvent();
+abstract class CubitStates extends Equatable {}
 
+// ignore: must_be_immutable
+class InitialState extends CubitStates {
+  late int x;
   @override
+  // TODO: implement props
   List<Object> get props => [];
 }
 
-class Increment extends CounterEvent {}
-
-// Define a state
-abstract class CounterState extends Equatable {
-  const CounterState();
-
+class WelcomeState extends CubitStates {
   @override
+  // TODO: implement props
   List<Object> get props => [];
 }
 
-class CounterInitial extends CounterState {}
-
-class CounterValue extends CounterState {
-  final int value;
-
-  const CounterValue(this.value);
-
+class LoadingState extends CubitStates {
   @override
-  List<Object> get props => [value];
+  // TODO: implement props
+  List<Object> get props => [];
+}
+
+class LoadedState extends CubitStates {
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
 }

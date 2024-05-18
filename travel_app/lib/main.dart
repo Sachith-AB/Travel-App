@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:travel_app/pages/detail_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel_app/cubit/app_cubit.dart';
+import 'package:travel_app/cubit/app_cubit_logics.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
         title: "travelApp",
         debugShowCheckedModeBanner: false,
-        home: DetailPage());
+        home: BlocProvider<AppCubits>(
+            create: (context) => AppCubits(), child: const AppCubitLogic()));
   }
 }
